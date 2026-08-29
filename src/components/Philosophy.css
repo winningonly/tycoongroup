@@ -1,0 +1,42 @@
+.philosophy {
+  padding: 200px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.philosophy-content {
+  max-width: 1000px;
+}
+
+.philosophy-statement {
+  font-size: 4rem;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 40px;
+  color: var(--color-text-primary);
+}
+
+.philosophy-sub {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+  .philosophy-statement {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .philosophy {
+    padding: 120px 5%;
+  }
+  .philosophy-statement {
+    font-size: 2rem;
+  }
+}

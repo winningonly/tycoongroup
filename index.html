@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tycoon Group — A Diversified Holding Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #040914;
+      --ink-soft: #0A1326;
+      --panel: #111F3A;
+      --panel-2: #172A4E;
+      --brass: #D90429;
+      --brass-light: #EF233C;
+      --brass-dim: rgba(217, 4, 41, 0.35);
+      --emerald: #003049;
+      --emerald-soft: #00456B;
+      --ivory: #FFFFFF;
+      --ivory-dim: #EDF2F4;
+      --line: rgba(255, 255, 255, 0.16);
+      --line-strong: rgba(255, 255, 255, 0.32);
+      --radius: 2px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--ivory);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse 900px 500px at 15% -5%, rgba(217, 4, 41, 0.06), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 100% 10%, rgba(0, 48, 73, 0.35), transparent 60%);
+    }
+
+    ::selection {
+      background: var(--brass);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 1.5px solid var(--brass-light);
+      outline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ivory);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .hairline {
+      border: none;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ===== NAV ===== */
+    nav.site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color .4s ease, background-color .4s ease, backdrop-filter .4s ease;
+    }
+
+    nav.site-nav.scrolled {
+      background: rgba(10, 13, 11, 0.86);
+      backdrop-filter: blur(10px);
+      border-bottom-color: var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brandmark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brandmark svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .brand-word {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .brand-word span {
+      color: var(--brass-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+      position: relative;
+      padding-bottom: 4px;
+      transition: color .25s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-light);
+      transition: width .3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ivory);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      border: 1px solid var(--brass-dim);
+      padding: 9px 18px;
+      border-radius: var(--radius);
+      color: var(--brass-light) !important;
+      transition: all .25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--brass);
+      color: var(--ink) !important;
+      border-color: var(--brass);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      width: 22px;
+      height: 1px;
+      background: var(--ivory);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 160px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-rings {
+      position: absolute;
+      top: 50%;
+      right: -8%;
+      transform: translateY(-50%);
+      width: 640px;
+      height: 640px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 26px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-eyebrow .dot {
+      width: 5px;
+      height: 5px;
+      background: var(--brass-light);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6.4vw, 92px);
+      line-height: 1.02;
+      max-width: 920px;
+      font-weight: 400;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--brass-light);
+    }
+
+    .hero-sub {
+      margin-top: 32px;
+      max-width: 520px;
+      font-size: 17px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      margin-top: 46px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--brass);
+      color: var(--ink);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: background .25s ease, transform .25s ease;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--brass-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 3px;
+      transition: color .25s ease, border-color .25s ease;
+    }
+
+    .btn-ghost:hover {
+      color: var(--ivory);
+      border-color: var(--brass-light);
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 44px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: var(--ivory-dim);
+      text-transform: uppercase;
+    }
+
+    .scroll-cue .line {
+      width: 34px;
+      height: 1px;
+      background: var(--brass-dim);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-cue .line::after {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--brass-light);
+      animation: scrollline 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollline {
+      50% {
+        left: 100%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* ===== SECTION shell ===== */
+    section {
+      position: relative;
+      padding: 120px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 3.4vw, 44px);
+      font-weight: 400;
+      max-width: 560px;
+    }
+
+    .section-head p {
+      max-width: 340px;
+      color: var(--ivory-dim);
+      font-size: 14.5px;
+      font-weight: 300;
+      padding-bottom: 4px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== STATS ===== */
+    .stats {
+      padding: 0 0 100px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stat {
+      padding: 34px 0;
+      border-left: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .stat:first-child {
+      border-left: none;
+    }
+
+    .stat .num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: clamp(28px, 3.4vw, 42px);
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    .stat .label {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--ivory-dim);
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== HOLDINGS BOARD ===== */
+    .holdings {
+      background: var(--ink-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .board {
+      border-top: 1px solid var(--line-strong);
+    }
+
+    .board-header,
+    .board-row {
+      display: grid;
+      grid-template-columns: 1fr 200px 90px 30px;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .board-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+      padding-top: 0;
+      padding-bottom: 16px;
+    }
+
+    .board-row {
+      cursor: pointer;
+      transition: background .25s ease;
+    }
+
+    .board-row:hover {
+      background: rgba(184, 146, 90, 0.045);
+    }
+
+    .board-row .name-col {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    
+    .company-logo {
+      height: 50px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      filter: brightness(1.2) contrast(1.1);
+    }
+
+    .company-logo.large {
+      height: 70px;
+      max-width: 180px;
+    }
+
+    .board-row .name {
+      font-family: 'Fraunces', serif;
+      font-size: 19px;
+      color: var(--ivory);
+      font-weight: 500;
+    }
+
+    .board-row .sector {
+      font-size: 12.5px;
+      color: var(--ivory-dim);
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    .board-row .est {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+      color: var(--ivory-dim);
+    }
+
+    .board-row .chev {
+      width: 18px;
+      height: 18px;
+      color: var(--brass-light);
+      transition: transform .3s ease;
+      justify-self: end;
+    }
+
+    .board-row.open .chev {
+      transform: rotate(45deg);
+    }
+
+    .board-desc {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .45s ease;
+      grid-column: 1 / -1;
+    }
+
+    .board-desc-inner {
+      padding: 0 4px 16px 0;
+      max-width: 640px;
+      color: var(--ivory-dim);
+      font-size: 14.5px;
+      font-weight: 300;
+    }
+
+    .board-row.open+.board-desc,
+    .board-row:hover+.board-desc,
+    .board-desc:hover {
+      max-height: 300px;
+    }
+
+    /* Marquee */
+    .board-images {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 26px;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-marquee 20s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .board-row:hover .marquee-track,
+    .board-desc:hover .marquee-track {
+      animation-play-state: running;
+    }
+
+    .marquee-group {
+      display: flex;
+      gap: 15px;
+      padding-right: 15px;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-25%);
+      }
+    }
+
+    .board-images img {
+      height: 140px;
+      width: 220px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      opacity: 0.85;
+      transition: opacity 0.3s;
+      flex-shrink: 0;
+    }
+
+    .board-images img:hover {
+      opacity: 1;
+    }
+
+    .flap {
+      display: inline-block;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===== SECTORS ===== */
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .sector-card {
+      background: var(--ink);
+      padding: 38px 34px;
+      grid-column: span 2;
+    }
+
+    .sector-card:nth-child(4),
+    .sector-card:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    .sector-card svg {
+      width: 26px;
+      height: 26px;
+      color: var(--brass-light);
+      margin-bottom: 22px;
+    }
+
+    .sector-card h3 {
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .sector-card p {
+      font-size: 13.5px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* ===== APPROACH ===== */
+    .approach {
+      background: var(--panel);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .approach h2 {
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    .approach-body p {
+      font-size: 16px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+      margin-bottom: 22px;
+    }
+
+    .approach-body p:first-child::first-letter {
+      font-family: 'Fraunces', serif;
+      font-size: 58px;
+      float: left;
+      line-height: 0.8;
+      padding: 8px 10px 0 0;
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    .principles {
+      margin-top: 36px;
+      display: grid;
+      gap: 0;
+    }
+
+    .principle {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 20px;
+    }
+
+    .principle .p-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--brass-light);
+      text-transform: uppercase;
+      padding-top: 2px;
+    }
+
+    .principle p {
+      font-size: 14px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+      margin: 0;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .t-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 30px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .t-row .year {
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--brass-light);
+      font-size: 15px;
+      padding-top: 2px;
+    }
+
+    .t-row .t-body h4 {
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .t-row .t-body p {
+      font-size: 14px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+      max-width: 540px;
+    }
+
+    /* ===== QUOTE ===== */
+    .quote-section {
+      background: var(--emerald);
+      background: linear-gradient(160deg, var(--emerald) 0%, var(--ink-soft) 120%);
+    }
+
+    .quote-mark {
+      font-family: 'Fraunces', serif;
+      font-size: 70px;
+      color: var(--brass-dim);
+      line-height: 0.5;
+      margin-bottom: 10px;
+    }
+
+    blockquote {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.4;
+      max-width: 840px;
+      color: var(--ivory);
+    }
+
+    .quote-attr {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .quote-attr .bar {
+      width: 34px;
+      height: 1px;
+      background: var(--brass-light);
+    }
+
+    .quote-attr .name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+    }
+
+    .quote-attr .name strong {
+      color: var(--ivory);
+      font-weight: 500;
+    }
+
+    /* ===== FOOTER / CONTACT ===== */
+    footer {
+      background: var(--ink);
+      padding-top: 110px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .footer-top h2 {
+      font-size: clamp(30px, 3.6vw, 48px);
+      font-weight: 400;
+      max-width: 480px;
+    }
+
+    .footer-top .sub {
+      margin-top: 20px;
+      color: var(--ivory-dim);
+      font-size: 15px;
+      font-weight: 300;
+      max-width: 420px;
+    }
+
+    .contact-block {
+      padding-top: 8px;
+    }
+
+    .contact-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .contact-line .k {
+      color: var(--ivory-dim);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-line .v {
+      color: var(--ivory);
+    }
+
+    .contact-line a.v:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-directory {
+      padding: 60px 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px 20px;
+    }
+
+    .footer-directory a {
+      font-size: 13px;
+      color: var(--ivory-dim);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .footer-directory a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-bottom {
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-bottom p {
+      font-size: 11.5px;
+      color: var(--ivory-dim);
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 22px;
+    }
+
+    .footer-social a {
+      font-size: 11.5px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--ivory-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-social a:hover {
+      color: var(--brass-light);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(3) {
+        border-left: none;
+      }
+
+      .sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sector-card,
+      .sector-card:nth-child(4) {
+        grid-column: auto;
+      }
+
+      .sector-card:nth-child(5) {
+        grid-column: span 2;
+      }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .footer-directory {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .board-header {
+        display: none;
+      }
+
+      .board-row {
+        grid-template-columns: 1fr 26px;
+        grid-template-areas: "main chev" "meta meta";
+      }
+
+      .board-row .name-col {
+        grid-area: main;
+      }
+
+      .board-row .sector {
+        grid-area: meta;
+        margin-top: 6px;
+      }
+
+      .board-row .est {
+        display: none;
+      }
+
+      .board-row .chev {
+        grid-area: chev;
+      }
+    }
+
+    @media (max-width:720px) {
+      .wrap {
+        padding: 0 24px;
+      }
+
+      .nav-inner {
+        padding: 18px 24px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--ink);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 40px 24px;
+        gap: 28px;
+        transform: translateX(100%);
+        transition: transform .35s ease;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .hero {
+        padding: 140px 0 70px;
+      }
+
+      .hero-rings {
+        width: 340px;
+        height: 340px;
+        right: -15%;
+        opacity: 0.35;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        gap: 12px;
+      }
+
+      .btn-primary {
+        padding: 12px 20px;
+        font-size: 11px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .section-head h2 {
+        font-size: 28px;
+      }
+
+      .sectors-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sector-card:nth-child(5) {
+        grid-column: auto;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-left: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .company-logo {
+        height: 40px;
+        max-width: 100px;
+      }
+
+      .company-logo.large {
+        height: 50px;
+        max-width: 120px;
+      }
+
+      .board-images img {
+        height: 100px;
+        width: 160px;
+      }
+
+      .marquee-group {
+        gap: 10px;
+        padding-right: 10px;
+      }
+
+      .footer-directory {
+        grid-template-columns: 1fr;
+      }
+
+      .principle {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .quote-mark {
+        font-size: 50px;
+      }
+
+      blockquote {
+        font-size: 20px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width:480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+      }
+
+      .section-head h2 {
+        font-size: 24px;
+      }
+
+      .company-logo {
+        height: 35px;
+        max-width: 80px;
+      }
+
+      .company-logo.large {
+        height: 40px;
+        max-width: 100px;
+      }
+
+      .board-images img {
+        height: 80px;
+        width: 130px;
+      }
+
+      .stats-grid {
+        gap: 0;
+      }
+
+      .stat {
+        padding: 24px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="#top" class="brandmark">
+        <img src="logo.png" alt="Tycoon Homes" style="height: 70px; width: auto;" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#holdings">Holdings</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#approach">Approach</a>
+        <a href="#history">History</a>
+        <a href="#contact" class="nav-cta">Enquire</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <svg class="hero-rings" viewBox="0 0 400 400" fill="none">
+        <circle cx="160" cy="150" r="110" stroke="#B8925A" stroke-width="0.75" opacity="0.5" />
+        <circle cx="250" cy="230" r="110" stroke="#B8925A" stroke-width="0.75" opacity="0.35" />
+        <circle cx="200" cy="280" r="80" stroke="#D9B27C" stroke-width="0.75" opacity="0.3" />
+      </svg>
+      <div class="hero-eyebrow eyebrow"><span class="dot"></span> Tycoon Group — Est. 2011 — Ebonyi, Nigeria</div>
+      <h1>Five companies. <br>One <em>discipline</em> of capital.</h1>
+      <p class="hero-sub">Tycoon Group is a privately held holding company. We build, own, and operate businesses across
+        construction, energy, logistics, property, hospitality, finance, and technology — run independently, capitalised
+        together.</p>
+      <div class="hero-actions">
+        <a href="#holdings" class="btn-primary">View the holdings</a>
+        <a href="#contact" class="btn-ghost">Speak to the group office</a>
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="line"></span> Scroll</div>
+  </header>
+
+  <section class="stats">
+    <div class="wrap reveal">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="num">05</div>
+          <div class="label">Operating companies</div>
+        </div>
+        <div class="stat">
+          <div class="num">04</div>
+          <div class="label">States of operation</div>
+        </div>
+        <div class="stat">
+          <div class="num">14</div>
+          <div class="label">Years under the Tycoon name</div>
+        </div>
+        <div class="stat">
+          <div class="num">1,200+</div>
+          <div class="label">People across the group</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="holdings" id="holdings">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>The holdings.</h2>
+        <p>Each company keeps its own management, balance sheet, and name. Tycoon Group holds equity, allocates capital,
+          and stays out of the way.</p>
+      </div>
+
+      <div class="board reveal">
+        <div class="board-header">
+          <span style="font-size: large;">Company</span><span style="font-size: large;">Sector</span><span style="font-size: large;">Est.</span><span></span>
+        </div>
+
+        <div class="board-body" id="boardBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectors" id="sectors">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Where the group operates.</h2>
+        <p>Five companies, four kinds of business: things we build, things we move, things we finance, and things we
+          run.</p>
+      </div>
+    </div>
+    <div class="sectors-grid reveal">
+      <div class="sector-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 11h.01M15 11h.01" />
+        </svg>
+        <h3>Build</h3>
+        <p>Construction, infrastructure, and property development — Tycoon Plus delivers the physical
+          assets the rest of the group, and the public, depend on.</p>
+      </div>
+      <div class="sector-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+        </svg>
+        <h3>Power</h3>
+        <p>Tycoon Oil and Gas generates, distributes, and finances power — from independent grid capacity to solar mini-grids
+          for underserved sites.</p>
+      </div>
+      <div class="sector-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M3 7h11v9H3V7zM14 10h4l3 3v3h-7v-6z" />
+          <circle cx="7" cy="18" r="1.7" />
+          <circle cx="18" cy="18" r="1.7" />
+        </svg>
+        <h3>Move</h3>
+        <p>Tycoon Motors runs haulage, warehousing, and last-mile freight, carrying goods for the group's own
+          businesses and for outside clients.</p>
+      </div>
+      <div class="sector-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-5h6v5" />
+        </svg>
+        <h3>House</h3>
+        <p>Tycoon Homes operates boutique hotels and serviced apartments in the cities where the group already has
+          a presence.</p>
+      </div>
+      <div class="sector-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M4 19h16M6 19V9l4-3 4 3v10M14 19v-6l4-2v8" />
+        </svg>
+        <h3>Finance</h3>
+        <p>Joibslink manages the group's own capital and offers trade finance and asset management to companies
+          outside the group.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="approach" id="approach">
+    <div class="wrap approach-grid">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:20px;">Approach</div>
+        <h2>Capital without a head office breathing down anyone's neck.</h2>
+        <img src="logo.png" alt="Tycoon Group Logo" style="margin-top: 30px; max-width: 400px; height: auto;" />
+      </div>
+      <div class="reveal approach-body">
+        <p>Tycoon Group does not run the companies it owns. Each one keeps its own leadership, its own name in the
+          market, and its own targets. The group's job is to fund the next site, the next fleet, the next hire, and to
+          move capital between companies when one needs it faster than a bank would give it.</p>
+        <p>That structure only works with discipline. Every company reports the same way, on the same schedule, so
+          capital can move on facts rather than favourites.</p>
+
+        <div class="principles">
+          <div class="principle">
+            <div class="p-label">Ownership</div>
+            <p>Tycoon Group holds a controlling stake in every company on the board — never a passive minority position.
+            </p>
+          </div>
+          <div class="principle">
+            <div class="p-label">Horizon</div>
+            <p>Capital is committed for the long run. No holding is built, or bought, to be flipped inside five years.
+            </p>
+          </div>
+          <div class="principle">
+            <div class="p-label">Autonomy</div>
+            <p>Operating decisions stay with each company's own management. The group office sets reporting standards,
+              not strategy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="history">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>How it was built.</h2>
+        <p>Fourteen years, one company at a time.</p>
+      </div>
+      <div class="timeline-list reveal">
+        <div class="t-row">
+          <div class="year">2011</div>
+          <div class="t-body">
+            <h4>Tycoon Plus builds the hotel</h4>
+            <p>A large edifice of hospitality in Ebonyi, with competitive room rate and beautiful rooms</p>
+          </div>
+        </div>
+
+        <div class="t-row">
+          <div class="year">2016</div>
+          <div class="t-body">
+            <h4>Tycoon Motors launches</h4>
+            <p>Built first to move materials between the group's own sites, then opened to outside freight clients
+              within a year.</p>
+          </div>
+        </div>
+        <div class="t-row">
+          <div class="year">2019</div>
+          <div class="t-body">
+            <h4>Joibslink is established</h4>
+            <p>The group's internal treasury function is spun out into a standalone finance company, and "Tycoon Group"
+              becomes the formal holding structure.</p>
+          </div>
+        </div>
+
+        <div class="t-row">
+          <div class="year">2024</div>
+          <div class="t-body">
+            <h4>The group crosses its first border</h4>
+            <p>Tycoon Oil and Gas and Tycoon Motors begin operations in Ghana, followed by a Joibslink office in the
+              UAE.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="wrap reveal">
+      <div class="quote-mark">"</div>
+      <blockquote>We were never trying to build one big company. We were trying to build five good ones, and refused to
+        let any of them starve for capital while another one had it to spare.</blockquote>
+      <div class="quote-attr">
+        <div class="bar"></div>
+        <div class="name"><strong>Ikenna Okpalanzekwe</strong> — Founder & Chairman, Tycoon Group</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="reveal">
+          <h2>Bring a company, or a proposal, to the group.</h2>
+          <p class="sub">Tycoon Group hears from operators looking for growth capital, and from businesses inside our
+            five sectors that would rather join a group than raise from a fund.</p>
+          <div style="margin-top:36px;"><a href="mailto:office@tycoongroup.example" class="btn-primary">Write to the
+              group office</a></div>
+        </div>
+        <div class="reveal contact-block">
+          <div class="contact-line"><span class="k">Head office</span><span class="v">Ebonyi,
+              Nigeria</span></div>
+          <div class="contact-line"><span class="k">General enquiries</span><a class="v"
+              href="mailto:office@tycoongroup.example">office@tycoongroup.example</a></div>
+          <div class="contact-line"><span class="k">Investor relations</span><a class="v"
+              href="mailto:ir@tycoongroup.example">ir@tycoongroup.example</a></div>
+          <div class="contact-line"><span class="k">Careers</span><a class="v"
+              href="mailto:careers@tycoongroup.example">careers@tycoongroup.example</a></div>
+        </div>
+      </div>
+
+      <div class="footer-directory reveal">
+        <a href="#holdings">Tycoon Plus</a>
+        <a href="#holdings">Tycoon Oil and Gas</a>
+        <a href="#holdings">Tycoon Motors</a>
+        <a href="#holdings">Tycoon Homes</a>
+        <a href="#holdings">Joibslink</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Tycoon Group Holdings Ltd. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#">LinkedIn</a>
+          <a href="#">X</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Group companies data — drives the holdings board
+    const holdings = [
+      {
+        name: 'Tycoon Plus', sector: 'Construction', est: '2011',
+        desc: 'Roads, housing estates, and commercial infrastructure across West Africa. The company the group was built on.',
+        images: ['tycoon_plus_1.jpg', 'tycoon_plus_2.jpg', 'tycoon_plus_3.jpg', 'tycoon_plus_4.jpg', 'tycoon_plus_5.jpg'],
+        logo: 'logo_plus.png'
+      },
+      {
+        name: 'Tycoon Oil and Gas', sector: 'Power & Energy', est: '2014',
+        desc: 'Independent power generation, solar mini-grids, and fuel distribution for industrial and residential sites.',
+        images: [],
+        logo: 'logo_oil.png'
+      },
+      {
+        name: 'Tycoon Motors', sector: 'Logistics & Freight', est: '2016',
+        desc: 'Haulage, warehousing, and a last-mile freight network serving the group and third-party clients.',
+        images: [],
+        logo: 'logo_motors.png'
+      },
+      {
+        name: 'Tycoon Homes', sector: 'Hospitality', est: '2018',
+        desc: 'Boutique hotels and serviced apartments in the cities where the group already has a presence.',
+        images: ['tycoon_homes_1.jpg', 'tycoon_homes_2.jpg', 'tycoon_homes_3.jpg', 'tycoon_homes_4.jpg', 'tycoon_homes_5.jpg', 'tycoon_homes_6.jpg'],
+        logo: 'logo_homes.png'
+      },
+      {
+        name: 'Joibslink', sector: 'Financial Services', est: '2019',
+        desc: 'Asset management and trade finance, for the group\'s own companies and for outside clients.',
+        images: [],
+        logo: 'logo_joibslink.png'
+      }
+    ];
+
+    const boardBody = document.getElementById('boardBody');
+    const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function scrambleInto(el, finalText, delay) {
+      if (reduceMotion) { el.textContent = finalText; return; }
+      const len = finalText.length;
+      let frame = 0;
+      const totalFrames = 14;
+      setTimeout(() => {
+        const iv = setInterval(() => {
+          frame++;
+          let out = '';
+          for (let i = 0; i < len; i++) {
+            const charDone = frame > (i * 1.1);
+            if (finalText[i] === ' ') { out += ' '; continue; }
+            out += charDone ? finalText[i] : CHARS[Math.floor(Math.random() * CHARS.length)];
+          }
+          el.textContent = out;
+          if (frame >= totalFrames + len) { el.textContent = finalText; clearInterval(iv); }
+        }, 28);
+      }, delay);
+    }
+
+    holdings.forEach((h, i) => {
+      const row = document.createElement('div');
+      row.className = 'board-row';
+      const logoClass = h.logo === 'logo_oil.png' ? 'company-logo large' : 'company-logo';
+      row.innerHTML = `
+      <div class="name-col">
+        ${h.logo ? `<img src="${h.logo}" class="${logoClass}" alt="${h.name} logo">` : ''}
+        <span class="name flap" data-final="${h.name}"></span>
+      </div>
+      <span class="sector flap" data-final="${h.sector}"></span>
+      <span class="est flap" data-final="${h.est}"></span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 5v14M5 12h14"/></svg>
+    `;
+      const desc = document.createElement('div');
+      desc.className = 'board-desc';
+
+      let imagesHtml = '';
+      if (h.images && h.images.length > 0) {
+        const imgs = h.images.map(img => `<img src="${img}" alt="${h.name}">`).join('');
+        // Duplicate into multiple groups for seamless infinite loop on any screen size
+        imagesHtml = `
+        <div class="board-images">
+          <div class="marquee-track">
+            <div class="marquee-group">${imgs}</div>
+            <div class="marquee-group">${imgs}</div>
+            <div class="marquee-group">${imgs}</div>
+            <div class="marquee-group">${imgs}</div>
+          </div>
+        </div>
+      `;
+      }
+
+      desc.innerHTML = `<div class="board-desc-inner">${h.desc}</div>${imagesHtml}`;
+
+      row.addEventListener('click', () => {
+        const isOpen = row.classList.contains('open');
+        document.querySelectorAll('.board-row.open').forEach(r => r.classList.remove('open'));
+        if (!isOpen) row.classList.add('open');
+      });
+
+      boardBody.appendChild(row);
+      boardBody.appendChild(desc);
+      row.dataset.index = i;
+    });
+
+    // Scramble-reveal the board when it enters view
+    let boardAnimated = false;
+    const boardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !boardAnimated) {
+          boardAnimated = true;
+          document.querySelectorAll('.flap').forEach((el, i) => {
+            scrambleInto(el, el.dataset.final, i * 70);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    boardObserver.observe(document.querySelector('.board'));
+
+    // Generic scroll reveals
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Nav scroll state
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+
+</body>
+
+</html>

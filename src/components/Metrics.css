@@ -1,0 +1,42 @@
+.metrics {
+  padding: 120px 5%;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.metric-value {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
