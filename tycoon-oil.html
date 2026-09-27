@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tycoon Oil and Gas — Premium Fuel Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #040914;
+      --ink-soft: #0A1326;
+      --panel: #111F3A;
+      --panel-2: #172A4E;
+      --brass: #D90429;
+      --brass-light: #EF233C;
+      --brass-dim: rgba(217, 4, 41, 0.35);
+      --emerald: #003049;
+      --emerald-soft: #00456B;
+      --ivory: #FFFFFF;
+      --ivory-dim: #EDF2F4;
+      --line: rgba(255, 255, 255, 0.16);
+      --line-strong: rgba(255, 255, 255, 0.32);
+      --radius: 2px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--ivory);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse 900px 500px at 15% -5%, rgba(217, 4, 41, 0.06), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 100% 10%, rgba(0, 48, 73, 0.35), transparent 60%);
+    }
+
+    ::selection {
+      background: var(--brass);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 1.5px solid var(--brass-light);
+      outline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ivory);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .hairline {
+      border: none;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ===== NAV ===== */
+    nav.site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color .4s ease, background-color .4s ease, backdrop-filter .4s ease;
+    }
+
+    nav.site-nav.scrolled {
+      background: rgba(10, 13, 11, 0.86);
+      backdrop-filter: blur(10px);
+      border-bottom-color: var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brandmark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .brandmark::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(217, 4, 41, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .brandmark:hover::before {
+      opacity: 1;
+    }
+
+    .brandmark img {
+      height: 80px;
+      width: auto;
+      filter: drop-shadow(0 0 20px rgba(217, 4, 41, 0.3));
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .brandmark:hover img {
+      height: 90px;
+      filter: drop-shadow(0 0 30px rgba(217, 4, 41, 0.5)) brightness(1.1);
+      transform: scale(1.05);
+    }
+
+    .brandmark::after {
+      content: '';
+      position: absolute;
+      width: calc(100% + 16px);
+      height: calc(100% + 16px);
+      border: 1px solid rgba(217, 4, 41, 0.3);
+      border-radius: 8px;
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 0;
+    }
+
+    .brandmark:hover::after {
+      opacity: 1;
+      border-color: rgba(217, 4, 41, 0.6);
+      box-shadow: 0 0 20px rgba(217, 4, 41, 0.2);
+    }
+
+    .brand-word {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .brand-word span {
+      color: var(--brass-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+      position: relative;
+      padding-bottom: 4px;
+      transition: color .25s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-light);
+      transition: width .3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ivory);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      border: 1px solid var(--brass-dim);
+      padding: 9px 18px;
+      border-radius: var(--radius);
+      color: var(--brass-light) !important;
+      transition: all .25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--brass);
+      color: var(--ink) !important;
+      border-color: var(--brass);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      width: 22px;
+      height: 1px;
+      background: var(--ivory);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 160px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--emerald) 0%, var(--ink-soft) 100%);
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(4, 9, 20, 0.85) 0%,
+        rgba(4, 9, 20, 0.75) 30%,
+        rgba(4, 9, 20, 0.65) 60%,
+        rgba(4, 9, 20, 0.85) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--brass-light);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particle-float 15s infinite;
+    }
+
+    @keyframes particle-float {
+      0% { opacity: 0; transform: translateY(100vh) scale(0); }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { opacity: 0; transform: translateY(-100vh) scale(1); }
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 48, 73, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse-glow 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 26px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 1;
+    }
+
+    .hero-eyebrow .dot {
+      width: 5px;
+      height: 5px;
+      background: var(--brass-light);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6.4vw, 92px);
+      line-height: 1.02;
+      max-width: 920px;
+      font-weight: 400;
+      opacity: 1;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--brass-light);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1 em::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--brass-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: underline-reveal 1s ease forwards 1s;
+    }
+
+    @keyframes underline-reveal {
+      to { transform: scaleX(1); }
+    }
+
+    .hero-sub {
+      margin-top: 32px;
+      max-width: 520px;
+      font-size: 17px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+      opacity: 1;
+    }
+
+    .hero-actions {
+      margin-top: 46px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 1;
+    }
+
+    @keyframes slide-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-primary {
+      background: var(--brass);
+      color: var(--ink);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left .5s ease;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover {
+      background: var(--brass-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 4, 41, 0.3);
+    }
+
+    .btn-ghost {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 3px;
+      transition: all .3s ease;
+      position: relative;
+    }
+
+    .btn-ghost::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-light);
+      transition: width .3s ease;
+    }
+
+    .btn-ghost:hover {
+      color: var(--ivory);
+    }
+
+    .btn-ghost:hover::after {
+      width: 100%;
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      position: relative;
+      padding: 120px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 3.4vw, 44px);
+      font-weight: 400;
+      max-width: 560px;
+    }
+
+    .section-head p {
+      max-width: 340px;
+      color: var(--ivory-dim);
+      font-size: 14.5px;
+      font-weight: 300;
+      padding-bottom: 4px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== STATIONS GRID ===== */
+    .stations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .station-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .station-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .station-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(217, 4, 41, 0.08) 40%, 
+        transparent 80%);
+      background-size: 200% 100%;
+      z-index: 0;
+      animation: color-flow 3s ease-in-out infinite;
+    }
+
+    .station-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--brass);
+      z-index: 1;
+    }
+
+    @keyframes color-flow {
+      0% {
+        background-position: -100% 0;
+      }
+      50% {
+        background-position: 100% 0;
+      }
+      100% {
+        background-position: 300% 0;
+      }
+    }
+
+    .station-card:hover {
+      border-color: var(--brass-dim);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .station-content {
+      padding: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .station-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .station-name {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ivory);
+    }
+
+    .station-location {
+      font-size: 14px;
+      color: var(--ivory-dim);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .station-location svg {
+      width: 16px;
+      height: 16px;
+      color: var(--brass-light);
+    }
+
+    .fuel-types {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .fuel-type {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--panel-2);
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      color: var(--ivory-dim);
+      border: 1px solid var(--line);
+    }
+
+    .station-features {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--ivory-dim);
+    }
+
+    .feature svg {
+      width: 16px;
+      height: 16px;
+      color: var(--brass-light);
+    }
+
+    .station-cta {
+      background: var(--brass);
+      color: var(--ink);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .station-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width .4s ease, height .4s ease;
+    }
+
+    .station-cta:active::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .station-cta:hover {
+      background: var(--brass-light);
+      transform: translateY(-1px);
+    }
+
+    /* ===== BULK PURCHASE SECTION ===== */
+    .bulk-section {
+      background: var(--panel);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bulk-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(0, 48, 73, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .bulk-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bulk-info h2 {
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .bulk-info h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--brass-light);
+    }
+
+    .bulk-info .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .bulk-info p {
+      font-size: 16px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .bulk-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: all .3s ease;
+    }
+
+    .benefit-item:hover {
+      border-color: var(--brass-dim);
+      background: rgba(217, 4, 41, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--emerald);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .benefit-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--ivory);
+    }
+
+    .benefit-text {
+      font-size: 14px;
+      color: var(--ivory);
+      font-weight: 500;
+    }
+
+    .bulk-cta-group {
+      display: flex;
+      gap: 16px;
+    }
+
+    .bulk-cta {
+      background: var(--brass);
+      color: var(--ink);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bulk-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left .5s ease;
+    }
+
+    .bulk-cta:hover::before {
+      left: 100%;
+    }
+
+    .bulk-cta:hover {
+      background: var(--brass-light);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(217, 4, 41, 0.3);
+    }
+
+    .bulk-cta.whatsapp {
+      background: #25D366;
+    }
+
+    .bulk-cta.whatsapp:hover {
+      background: #128C7E;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--ink);
+      padding-top: 80px;
+    }
+
+    .footer-content {
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-content p {
+      font-size: 11.5px;
+      color: var(--ivory-dim);
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      font-size: 11.5px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--ivory-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-nav a:hover {
+      color: var(--brass-light);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:900px) {
+      .bulk-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stations-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width:720px) {
+      .wrap {
+        padding: 0 24px;
+      }
+
+      .nav-inner {
+        padding: 18px 24px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--ink);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 40px 24px;
+        gap: 28px;
+        transform: translateX(100%);
+        transition: transform .35s ease;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .hero {
+        padding: 140px 0 70px;
+        min-height: 60vh;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        gap: 12px;
+      }
+
+      .btn-primary {
+        padding: 12px 20px;
+        font-size: 11px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .section-head h2 {
+        font-size: 28px;
+      }
+
+      .stations-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bulk-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .bulk-cta-group {
+        flex-direction: column;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width:480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+      }
+
+      .section-head h2 {
+        font-size: 24px;
+      }
+
+      .station-card {
+        max-width: 100%;
+      }
+
+      .bulk-cta {
+        padding: 14px 28px;
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="brandmark">
+        <img src="/logo.png" alt="Tycoon Group" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Group Home</a>
+        <a href="#stations">Stations</a>
+        <a href="#bulk">Bulk Orders</a>
+        <a href="index.html#contact" class="nav-cta">Contact Group</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap hero-content-wrapper">
+      <div class="hero-eyebrow eyebrow"><span class="dot"></span> Tycoon Oil and Gas — Est. 2001 — Ebonyi, Nigeria</div>
+      <h1>Premium fuel <br>at <em>competitive</em> prices.</h1>
+      <p class="hero-sub">Experience the best quality PMS and AGO across Ebonyi State. Our filling stations offer competitive pricing, superior fuel quality, and exceptional service for all your fuel needs.</p>
+      <div class="hero-actions">
+        <a href="#stations" class="btn-primary">Find a Station</a>
+        <a href="#bulk" class="btn-ghost">Bulk Orders</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="stations">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Our filling stations.</h2>
+        <p>Strategically located across Ebonyi State, our stations offer the best prices and highest quality fuel. Find a station near you.</p>
+      </div>
+
+      <div class="stations-grid reveal">
+        <!-- Stations will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <section class="bulk-section" id="bulk">
+    <div class="wrap">
+      <div class="bulk-content reveal">
+        <div class="bulk-info">
+          <div class="eyebrow">Bulk Purchases</div>
+          <h2>Need fuel in large quantities?</h2>
+          <p>For businesses, fleets, and large-scale fuel needs, we offer competitive bulk pricing with dedicated support. Contact us for special rates and reliable delivery across Ebonyi State.</p>
+          
+          <div class="bulk-benefits">
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div class="benefit-text">Competitive Bulk Rates</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="benefit-text">Premium Quality Guarantee</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+                </svg>
+              </div>
+              <div class="benefit-text">Reliable Delivery</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="benefit-text">Dedicated Support</div>
+            </div>
+          </div>
+
+          <div class="bulk-cta-group">
+            <a href="tel:+2349013499922" class="bulk-cta">Call for Bulk Orders</a>
+            <a href="#" class="bulk-cta whatsapp" id="bulkWhatsapp">WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-content">
+        <p>© 2026 Tycoon Oil and Gas — A Tycoon Group Company. All rights reserved.</p>
+        <div class="footer-nav">
+          <a href="index.html">Tycoon Group</a>
+          <a href="#stations">Stations</a>
+          <a href="#bulk">Bulk Orders</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Station data
+    const stations = [
+      { name: 'Ogbala station', location: 'Ogbala Izzi', fuels: ['PMS', 'AGO'] },
+      { name: 'Ntezi station', location: 'Ntezi', fuels: ['PMS', 'AGO'] },
+      { name: 'Ovudechi station', location: 'Ovudechi', fuels: ['PMS', 'AGO'] },
+      { name: 'Nwori station', location: 'Nwori', fuels: ['PMS', 'AGO'] },
+      { name: 'Iziogo station', location: 'Iziogo', fuels: ['PMS', 'AGO'] },
+      { name: 'Ezillo station', location: 'Ezillo', fuels: ['PMS', 'AGO'] },
+      { name: '135 station', location: '135 Ezzamgbo', fuels: ['PMS', 'AGO'] },
+      { name: 'Ezzamgbo station', location: 'Ezzamgbo', fuels: ['PMS', 'AGO'] },
+      { name: 'Amasiri station', location: 'Amasiri', fuels: ['PMS', 'AGO'] },
+      { name: 'Akpoha station', location: 'Akpoha', fuels: ['PMS', 'AGO'] },
+      { name: 'Ikwo station', location: 'Ikwo', fuels: ['PMS', 'AGO'] },
+      { name: 'Iboko station', location: 'Iboko', fuels: ['PMS', 'AGO'] },
+      { name: 'Nwezenyi station 1', location: 'Nwezenyi', fuels: ['PMS', 'AGO'] },
+      { name: 'Nwezenyi station 2', location: 'Nwanwu', fuels: ['PMS', 'AGO'] },
+      { name: 'Nwezenyi station 3', location: 'Nwezenyi', fuels: ['PMS', 'AGO'] },
+      { name: 'Onueke station', location: 'Onueke', fuels: ['PMS', 'AGO'] },
+      { name: 'Echiaba station', location: 'Echiaba', fuels: ['PMS', 'AGO'] },
+      { name: 'Nwofe station', location: 'Nwofe', fuels: ['PMS', 'AGO'] },
+      { name: 'Benjoy station', location: 'Spare n deo', fuels: ['PMS', 'AGO'] },
+      { name: 'Head office', location: 'Spare n deo', fuels: ['PMS', 'AGO'] }
+    ];
+
+    // Populate stations grid
+    const stationsGrid = document.querySelector('.stations-grid');
+    
+    stations.forEach((station, index) => {
+      const stationCard = document.createElement('div');
+      stationCard.className = 'station-card';
+      
+      // Add staggered animation delay
+      stationCard.style.animationDelay = `${index * 0.2}s`;
+      
+      const fuelsHtml = station.fuels.map(fuel => 
+        `<span class="fuel-type">${fuel}</span>`
+      ).join('');
+      
+      stationCard.innerHTML = `
+        <div class="station-content">
+          <h3 class="station-name">${station.name}</h3>
+          <div class="station-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13a9 9 0 0 0-9-13c0-7 9-13 9-13a9 9 0 0 0 9 13zM9 10a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/>
+              <circle cx="9" cy="10" r="2"/>
+            </svg>
+            ${station.location}
+          </div>
+          <div class="fuel-types">
+            ${fuelsHtml}
+          </div>
+          <div class="station-features">
+            <div class="feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Best Price
+            </div>
+            <div class="feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Premium Quality
+            </div>
+          </div>
+          <button class="station-cta">Get Directions</button>
+        </div>
+      `;
+      
+      stationsGrid.appendChild(stationCard);
+    });
+
+    // Station card animations
+    const stationCards = document.querySelectorAll('.station-card');
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    stationCards.forEach(card => cardObserver.observe(card));
+
+    // Generic scroll reveals
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Nav scroll state
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Create floating particles
+    function createParticles() {
+      const container = document.getElementById('heroParticles');
+      if (!container) return;
+      
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+        particle.style.width = (2 + Math.random() * 4) + 'px';
+        particle.style.height = particle.style.width;
+        container.appendChild(particle);
+      }
+    }
+    
+    createParticles();
+
+    // WhatsApp bulk order
+    const bulkWhatsapp = document.getElementById('bulkWhatsapp');
+    const whatsappNumber = '2349013499922';
+    
+    bulkWhatsapp.addEventListener('click', (e) => {
+      e.preventDefault();
+      const whatsappMessage = encodeURIComponent('Hello Tycoon Oil and Gas, I want to make enquiry about bulk fuel purchase for my business/fleet');
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+      window.open(whatsappLink, '_blank');
+    });
+  </script>
+
+</body>
+
+</html>

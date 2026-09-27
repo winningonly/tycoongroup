@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joibslink Empowerment Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a5f2a;
+      --primary-light: #2d8a4e;
+      --secondary: #f4a423;
+      --accent: #e63946;
+      --dark: #0d1b2a;
+      --light: #f8f9fa;
+      --gold: #d4a853;
+      --surface: #ffffff;
+      --surface-dark: #1e293b;
+      --text: #2c3e50;
+      --text-light: #64748b;
+      --line: rgba(0, 0, 0, 0.1);
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .nav-logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 120px 40px 80px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      overflow: hidden;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      background-image: radial-gradient(circle at 25% 25%, white 2%, transparent 2%),
+                        radial-gradient(circle at 75% 75%, white 2%, transparent 2%);
+      background-size: 50px 50px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      color: white;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      line-height: 1.8;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: var(--dark);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(244, 164, 35, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(244, 164, 35, 0.4);
+    }
+
+    .btn-white {
+      background: transparent;
+      color: white;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-white:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 120px 40px;
+      background: white;
+      position: relative;
+    }
+
+    .section-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 48px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--dark);
+    }
+
+    .section-description {
+      font-size: 16px;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-content {
+      padding: 40px;
+      background: var(--light);
+      border-radius: var(--radius);
+    }
+
+    .about-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .objectives-list {
+      list-style: none;
+    }
+
+    .objective-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: white;
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+    }
+
+    .objective-item:hover {
+      transform: translateX(8px);
+      box-shadow: var(--shadow);
+    }
+
+    .objective-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .objective-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--surface-dark);
+      border-radius: var(--radius);
+      padding: 40px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Services Section */
+    .services-section {
+      padding: 120px 40px;
+      background: var(--light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: white;
+    }
+
+    .service-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--dark);
+    }
+
+    .service-description {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .service-features li svg {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .service-cta {
+      background: var(--primary);
+      color: white;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .service-cta:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .service-cta.secondary {
+      background: var(--secondary);
+      color: var(--dark);
+    }
+
+    .service-cta.secondary:hover {
+      background: var(--gold);
+    }
+
+    /* Charity Section */
+    .charity-section {
+      padding: 120px 40px;
+      background: white;
+    }
+
+    .charity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .charity-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .charity-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .charity-image {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .charity-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      padding: 24px;
+      color: white;
+    }
+
+    .charity-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .charity-description {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 120px 40px;
+      background: var(--dark);
+      color: white;
+    }
+
+    .contact-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .contact-info {
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .contact-item svg {
+      width: 24px;
+      height: 24px;
+      color: var(--secondary);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .contact-item-content h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .contact-item-content p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Prevent phone number auto-linking */
+    .contact-item-content p a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+    }
+
+    .contact-item-content p a:hover {
+      color: var(--secondary);
+    }
+
+    .contact-cta {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-visual {
+      text-align: center;
+    }
+
+    .contact-visual h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: white;
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 20px 40px;
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-button:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 100px 20px 60px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .about-section,
+      .services-section,
+      .charity-section,
+      .contact-section {
+        padding: 80px 20px;
+      }
+
+      .about-grid,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .charity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">JL</div>
+        <span class="nav-logo-text">Joibslink</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#charity">Charity</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Empowerment Foundation</span>
+      <h1 class="hero-title">Financial Growth & Community Impact</h1>
+      <p class="hero-subtitle">
+        Joibslink Empowerment Foundation provides competitive borrowing rates, attractive deposit interest, and meaningful charity work to empower communities and foster economic development.
+      </p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn-primary">Our Services</a>
+        <a href="#contact" class="btn-white">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Our Mission & Vision</h2>
+        <p class="section-description">
+          Joibslink Empowerment Foundation is dedicated to fostering social and economic development through financial services and community support.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-content">
+          <p class="about-text">
+            We are committed to assisting in poverty alleviation, promoting the welfare of our members, and organizing empowerment and career building programmes. Our foundation focuses on creating sustainable economic opportunities for individuals and communities.
+          </p>
+          <ul class="objectives-list">
+            <li class="objective-item">
+              <div class="objective-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <span class="objective-text">Assisting in poverty alleviation</span>
+            </li>
+            <li class="objective-item">
+              <div class="objective-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <span class="objective-text">Promoting the welfare of members</span>
+            </li>
+            <li class="objective-item">
+              <div class="objective-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <span class="objective-text">Organizing empowerment programmes</span>
+            </li>
+            <li class="objective-item">
+              <div class="objective-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 01-2-2h-3.064M4.5 4.5h15"/>
+                </svg>
+              </div>
+              <span class="objective-text">Fostering social and economic development</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="about-visual">
+          <div class="about-card">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; margin-bottom: 24px;">Our Impact</h3>
+            <div class="stat-grid">
+              <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Members Empowered</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Community Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years of Service</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">₦50M+</div>
+                <div class="stat-label">Financial Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-label">Our Services</p>
+        <h2 class="section-title">Financial Solutions</h2>
+        <p class="section-description">
+          We provide competitive borrowing rates and attractive deposit interest to help you achieve your financial goals.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Borrow Money Service -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Borrow Money</h3>
+          <p class="service-description">
+            Access competitive loan rates with flexible repayment terms. We provide financial support when you need it most.
+          </p>
+          <ul class="service-features">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Competitive interest rates
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Flexible repayment plans
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Quick approval process
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              No hidden charges
+            </li>
+          </ul>
+          <button class="service-cta secondary" onclick="openWhatsApp('borrow')">Request to Borrow</button>
+        </div>
+
+        <!-- Deposit Money Service -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Deposit Money</h3>
+          <p class="service-description">
+            Earn attractive interest on your deposits. Your money works for you while supporting our community initiatives.
+          </p>
+          <ul class="service-features">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Competitive deposit rates
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Regular interest payments
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Secure fund management
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              Flexible deposit terms
+            </li>
+          </ul>
+          <button class="service-cta" onclick="openWhatsApp('deposit')">Request to Deposit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charity Section -->
+  <section class="charity-section" id="charity">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-label">Our Impact</p>
+        <h2 class="section-title">Charity & Community Work</h2>
+        <p class="section-description">
+          We are committed to giving back to the community through our various charity initiatives and empowerment programs.
+        </p>
+      </div>
+
+      <div class="charity-grid">
+        <div class="charity-card">
+          <img src="/charity1.jpg" alt="Charity Distribution" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Food Distribution</h3>
+            <p class="charity-description">Providing essential food items to communities in need</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity2.jpg" alt="Community Gathering" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Community Support</h3>
+            <p class="charity-description">Empowering communities through collective action</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity3.jpg" alt="Rice Distribution" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Essential Supplies</h3>
+            <p class="charity-description">Distributing rice and essential items to families</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity4.jpg" alt="Storage and Distribution" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Resource Management</h3>
+            <p class="charity-description">Organizing and storing supplies for distribution</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2 class="contact-title">Get In Touch</h2>
+        
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <div class="contact-item-content">
+            <h4>Phone</h4>
+            <p style="color: rgba(255, 255, 255, 0.7);">08064494898</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <div class="contact-item-content">
+            <h4>Email</h4>
+            <p>info@joibslink.example</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <div class="contact-item-content">
+            <h4>Location</h4>
+            <p>Ebonyi State, Nigeria</p>
+          </div>
+        </div>
+
+        <div class="contact-cta">
+          <button class="btn-primary" onclick="window.location.href='tel:+2341234567890'">Call Us</button>
+        </div>
+      </div>
+
+      <div class="contact-visual">
+        <h3>Contact Us on WhatsApp</h3>
+        <p style="margin-bottom: 32px; color: rgba(255, 255, 255, 0.7);">
+          Reach out to us directly on WhatsApp for quick assistance with borrowing, deposits, or any inquiries.
+        </p>
+        <button class="whatsapp-button" onclick="openWhatsApp('general')">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Us
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Tycoon Group</a>
+        <a href="tycoon-plus.html">Tycoon Plus</a>
+        <a href="tycoon-oil.html">Tycoon Oil & Gas</a>
+        <a href="tycoon-motors.html">Tycoon Motors</a>
+        <a href="tycoon-homes.html">Tycoon Homes</a>
+        <a href="joibslink.html">Joibslink</a>
+      </div>
+      <p class="footer-copy">© 2024 Joibslink Empowerment Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // WhatsApp function
+    function openWhatsApp(type) {
+      let message = '';
+      
+      if (type === 'borrow') {
+        message = encodeURIComponent('Hello Joibslink, I want to make enquiry about borrowing money. Please provide information about your loan rates and requirements.');
+      } else if (type === 'deposit') {
+        message = encodeURIComponent('Hello Joibslink, I want to make enquiry about depositing money. Please provide information about your deposit interest rates and terms.');
+      } else {
+        message = encodeURIComponent('Hello Joibslink, I want to make general enquiry about your services and financial solutions.');
+      }
+      
+      window.open(`https://wa.me/2348167418983?text=${message}`, '_blank');
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
