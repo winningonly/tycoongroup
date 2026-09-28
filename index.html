@@ -1530,83 +1530,35 @@
       }, delay);
     }
 
-    holdings.forEach((h, i) => {
-      const row = document.createElement('div');
+    const pageMap = {
+      'Tycoon Plus': '/tycoon-plus.html',
+      'Tycoon Oil and Gas': '/tycoon-oil.html',
+      'Tycoon Motors': '/tycoon-motors.html',
+      'Tycoon Homes': '/tycoon-homes.html',
+      'Joibslink': '/joibslink.html'
+    };
+
+    holdings.forEach((h) => {
+      // every holding links to its own page
+      const row = document.createElement('a');
       row.className = 'board-row';
-      // Check if this company should be a link or expandable row
-      const isLinkCompany = ['Tycoon Plus', 'Tycoon Oil and Gas', 'Tycoon Motors', 'Tycoon Homes', 'Joibslink'].includes(h.name);
-      
-      if (isLinkCompany) {
-        // Create as anchor element for navigation
-        row = document.createElement('a');
-        row.className = 'board-row';
-        
-        // Set the href based on company name
-        const pageMap = {
-          'Tycoon Plus': '/tycoon-plus.html',
-          'Tycoon Oil and Gas': '/tycoon-oil.html',
-          'Tycoon Motors': '/tycoon-motors.html',
-          'Tycoon Homes': '/tycoon-homes.html',
-          'Joibslink': '/joibslink.html'
-        };
-        row.href = pageMap[h.name];
-        
-        // Add styles to make it look like a regular row
-        row.style.textDecoration = 'none';
-        row.style.color = 'inherit';
-        row.style.display = 'block';
-      } else {
-        // Regular expandable row
-        row = document.createElement('div');
-        row.className = 'board-row';
-        
-        // Add special styling for regular companies
-        row.style.cursor = 'pointer';
-      }
-      
+      row.href = pageMap[h.name];
+      row.style.textDecoration = 'none';
+      row.style.color = 'inherit';
+      // no display:block here, so the grid columns stay aligned
+
       const logoClass = h.logo === 'logo_oil.png' ? 'company-logo large' : 'company-logo';
       row.innerHTML = `
-      <div class="name-col">
-        ${h.logo ? `<img src="${h.logo}" class="${logoClass}" alt="${h.name} logo">` : ''}
-        <span class="name flap" data-final="${h.name}"></span>
-      </div>
-      <span class="sector flap" data-final="${h.sector}"></span>
-      <span class="est flap" data-final="${h.est}"></span>
-      ${!isLinkCompany ? '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 5v14M5 12h14"/></svg>' : ''}
-    `;
-      const desc = document.createElement('div');
-      desc.className = 'board-desc';
-
-      let imagesHtml = '';
-      if (h.images && h.images.length > 0) {
-        const imgs = h.images.map(img => `<img src="${img}" alt="${h.name}">`).join('');
-        // Duplicate into multiple groups for seamless infinite loop on any screen size
-        imagesHtml = `
-        <div class="board-images">
-          <div class="marquee-track">
-            <div class="marquee-group">${imgs}</div>
-            <div class="marquee-group">${imgs}</div>
-            <div class="marquee-group">${imgs}</div>
-            <div class="marquee-group">${imgs}</div>
-          </div>
+        <div class="name-col">
+          ${h.logo ? `<img src="${h.logo}" class="${logoClass}" alt="${h.name} logo">` : ''}
+          <span class="name flap" data-final="${h.name}"></span>
         </div>
+        <span class="sector flap" data-final="${h.sector}"></span>
+        <span class="est flap" data-final="${h.est}"></span>
+        <span></span>
       `;
-      }
-
-      desc.innerHTML = `<div class="board-desc-inner">${h.desc}</div}${imagesHtml}`;
 
       boardBody.appendChild(row);
-      
-      // Only add expand behavior for non-link companies
-      if (!isLinkCompany) {
-        boardBody.appendChild(desc);
-        row.dataset.index = i;
-        row.addEventListener('click', () => {
-          const isOpen = row.classList.contains('open');
-          document.querySelectorAll('.board-row.open').forEach(r => r.classList.remove('open'));
-          if (!isOpen) row.classList.add('open');
-        });
-      }
     });
 
     // Scramble-reveal the board when it enters view
