@@ -1581,46 +1581,52 @@
 
       desc.innerHTML = `<div class="board-desc-inner">${h.desc}</div>${imagesHtml}`;
 
-      // For Tycoon Plus, Tycoon Oil and Gas, Tycoon Motors, Tycoon Homes, and Joibslink, wrap in anchor tag
+      boardBody.appendChild(row);
+      row.dataset.index = i;
+
+      // For Tycoon Plus, Tycoon Oil and Gas, Tycoon Motors, Tycoon Homes, and Joibslink, navigate to separate pages
       if (h.name === 'Tycoon Plus') {
-        const link = document.createElement('a');
-        link.href = '/tycoon-plus.html';
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-        link.appendChild(row);
-        boardBody.appendChild(link);
+        row.style.cursor = 'pointer';
+        row.title = 'View Tycoon Plus rooms and booking';
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.assign('/tycoon-plus.html');
+        });
       } else if (h.name === 'Tycoon Oil and Gas') {
-        const link = document.createElement('a');
-        link.href = '/tycoon-oil.html';
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-        link.appendChild(row);
-        boardBody.appendChild(link);
+        row.style.cursor = 'pointer';
+        row.title = 'View Tycoon Oil and Gas filling stations';
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.assign('/tycoon-oil.html');
+        });
       } else if (h.name === 'Tycoon Motors') {
-        const link = document.createElement('a');
-        link.href = '/tycoon-motors.html';
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-        link.appendChild(row);
-        boardBody.appendChild(link);
+        row.style.cursor = 'pointer';
+        row.title = 'View Tycoon Motors truck fleet';
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.assign('/tycoon-motors.html');
+        });
       } else if (h.name === 'Tycoon Homes') {
-        const link = document.createElement('a');
-        link.href = '/tycoon-homes.html';
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-        link.appendChild(row);
-        boardBody.appendChild(link);
+        row.style.cursor = 'pointer';
+        row.title = 'View Tycoon Homes properties';
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.assign('/tycoon-homes.html');
+        });
       } else if (h.name === 'Joibslink') {
-        const link = document.createElement('a');
-        link.href = '/joibslink.html';
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-        link.appendChild(row);
-        boardBody.appendChild(link);
+        row.style.cursor = 'pointer';
+        row.title = 'View Joibslink Empowerment Foundation';
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.assign('/joibslink.html');
+        });
       } else {
-        boardBody.appendChild(row);
         boardBody.appendChild(desc);
-        row.dataset.index = i;
         row.addEventListener('click', () => {
           const isOpen = row.classList.contains('open');
           document.querySelectorAll('.board-row.open').forEach(r => r.classList.remove('open'));
