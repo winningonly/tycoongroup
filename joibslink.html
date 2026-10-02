@@ -506,8 +506,8 @@
 
     .charity-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -521,13 +521,13 @@
     }
 
     .charity-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
     .charity-image {
       width: 100%;
-      height: 350px;
+      height: 280px;
       object-fit: cover;
     }
 
@@ -537,19 +537,19 @@
       left: 0;
       right: 0;
       background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-      padding: 24px;
+      padding: 16px;
       color: white;
     }
 
     .charity-title {
       font-family: 'Playfair Display', serif;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
     .charity-description {
-      font-size: 14px;
+      font-size: 12px;
       opacity: 0.9;
     }
 
@@ -736,9 +736,12 @@
         grid-template-columns: 1fr;
       }
 
-      .services-grid,
-      .charity-grid {
+      .services-grid {
         grid-template-columns: 1fr;
+      }
+
+      .charity-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .stat-grid {
@@ -751,10 +754,18 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="/index.html" class="nav-logo">
-        <div class="nav-logo-icon">JL</div>
-        <span class="nav-logo-text">Joibslink</span>
-      </a>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/index.html" style="display: flex; align-items: center; gap: 6px; color: var(--primary); font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 600; text-decoration: none; padding: 8px 16px; background: rgba(26, 95, 42, 0.1); border-radius: 50px; transition: all 0.3s ease;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to Tycoon Group
+        </a>
+        <a href="/joibslink.html" class="nav-logo">
+          <div class="nav-logo-icon">JL</div>
+          <span class="nav-logo-text">Joibslink</span>
+        </a>
+      </div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
@@ -837,15 +848,15 @@
             <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; margin-bottom: 24px;">Our Impact</h3>
             <div class="stat-grid">
               <div class="stat-item">
-                <div class="stat-number">500+</div>
+                <div class="stat-number">100+</div>
                 <div class="stat-label">Members Empowered</div>
               </div>
               <div class="stat-item">
-                <div class="stat-number">50+</div>
+                <div class="stat-number">3+</div>
                 <div class="stat-label">Community Projects</div>
               </div>
               <div class="stat-item">
-                <div class="stat-number">10+</div>
+                <div class="stat-number">25+</div>
                 <div class="stat-label">Years of Service</div>
               </div>
               <div class="stat-item">
@@ -994,7 +1005,47 @@
           <img src="/charity4.jpg" alt="Storage and Distribution" class="charity-image">
           <div class="charity-overlay">
             <h3 class="charity-title">Resource Management</h3>
-            <p class="charity-description">Organizing and storing supplies for distribution</p>
+            <p class="charity-description">Annual distribution of food items to less privileged</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity5.jpg" alt="Community Event" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Community Event</h3>
+            <p class="charity-description">Gathering community members for empowerment programs</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity6.jpg" alt="Distribution Program" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Distribution Program</h3>
+            <p class="charity-description">Systematic distribution of essential items to beneficiaries</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity7.jpg" alt="Community Support" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Support Programs</h3>
+            <p class="charity-description">Providing support through various community initiatives</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity8.jpg" alt="Beneficiary Support" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Beneficiary Support</h3>
+            <p class="charity-description">Direct support to community members in need</p>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <img src="/charity9.jpg" alt="Community Training" class="charity-image">
+          <div class="charity-overlay">
+            <h3 class="charity-title">Community Training</h3>
+            <p class="charity-description">Skills development and training programs for community empowerment</p>
           </div>
         </div>
       </div>
@@ -1023,7 +1074,7 @@
           </svg>
           <div class="contact-item-content">
             <h4>Email</h4>
-            <p>info@joibslink.example</p>
+            <p>okpalabenson5@gmail.com</p>
           </div>
         </div>
 
@@ -1039,7 +1090,7 @@
         </div>
 
         <div class="contact-cta">
-          <button class="btn-primary" onclick="window.location.href='tel:+2341234567890'">Call Us</button>
+          <button class="btn-primary" onclick="window.location.href='tel:+2348064494898'">Call Us</button>
         </div>
       </div>
 
@@ -1062,7 +1113,7 @@
   <footer>
     <div class="footer-content">
       <div class="footer-links">
-        <a href="/index.html">Tycoon Group</a>
+        <a href="/index.html">Tycoon Group of Companies</a>
         <a href="/tycoon-plus.html">Tycoon Plus</a>
         <a href="/tycoon-oil.html">Tycoon Oil & Gas</a>
         <a href="/tycoon-motors.html">Tycoon Motors</a>
@@ -1070,6 +1121,10 @@
         <a href="/joibslink.html">Joibslink</a>
       </div>
       <p class="footer-copy">© 2024 Joibslink Empowerment Foundation. All rights reserved.</p>
+      <div style="margin-top: 16px; font-size: 12px; color: rgba(255, 255, 255, 0.5);">
+        <div style="margin-bottom: 8px;">General Manager: <a href="tel:09013499922" style="color: rgba(255, 255, 255, 0.5);">090-134-99922</a></div>
+        <div>Managing Director: <a href="tel:08033121893" style="color: rgba(255, 255, 255, 0.5);">080-331-21893</a></div>
+      </div>
     </div>
   </footer>
 
@@ -1086,7 +1141,7 @@
         message = encodeURIComponent('Hello Joibslink, I want to make general enquiry about your services and financial solutions.');
       }
       
-      window.open(`https://wa.me/2348167418983?text=${message}`, '_blank');
+      window.open(`https://wa.me/2348064494898?text=${message}`, '_blank');
     }
 
     // Smooth scroll
