@@ -13,14 +13,14 @@ const Footer = () => {
         <div className="gold-line footer-divider"></div>
         
         <div className="footer-bottom">
-          <div className="footer-logo">Tycoon Group of Companies</div>
+          <div className="footer-logo">Tycoon Motors International</div>
           <div className="footer-links">
             <a href="#legal">Legal</a>
             <a href="#privacy">Privacy</a>
             <a href="#terms">Terms</a>
           </div>
           <div className="footer-copyright">
-            &copy; {new Date().getFullYear()} Tycoon Group of Companies Holdings. All rights reserved.
+            &copy; {new Date().getFullYear()} Tycoon Motors International Holdings. All rights reserved.
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tycoon Group of Companies — A Diversified Holding Company</title>
+  <title>Tycoon Motors International — A Diversified Holding Company</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -477,6 +477,49 @@
       font-size: 12px;
       color: var(--ivory-dim);
       letter-spacing: 0.04em;
+    }
+
+    /* ===== MISSION & VISION ===== */
+    .mission-vision {
+      background: var(--panel-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .mv-card {
+      padding: 20px 0;
+    }
+
+    .mv-card .eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .mv-card h3 {
+      font-size: clamp(24px, 2.8vw, 32px);
+      font-weight: 500;
+      margin-bottom: 18px;
+      color: var(--brass-light);
+    }
+
+    .mv-card p {
+      font-size: 15px;
+      color: var(--ivory-dim);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .mv-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 20px;
+      color: var(--brass-light);
     }
 
     /* ===== HOLDINGS BOARD ===== */
@@ -954,6 +997,11 @@
         border-left: none;
       }
 
+      .mv-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
       .sectors-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1208,7 +1256,7 @@
   <nav class="site-nav" id="siteNav">
     <div class="nav-inner">
       <a href="#top" class="brandmark">
-        <img src="logo.png" alt="Tycoon Group of Companies" />
+        <img src="logo.png" alt="Tycoon Motors International" />
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -1230,11 +1278,9 @@
         <circle cx="250" cy="230" r="110" stroke="#B8925A" stroke-width="0.75" opacity="0.35" />
         <circle cx="200" cy="280" r="80" stroke="#D9B27C" stroke-width="0.75" opacity="0.3" />
       </svg>
-      <div class="hero-eyebrow eyebrow"><span class="dot"></span> Tycoon Group of Companies — Est. 2001 — Ebonyi, Nigeria</div>
+      <div class="hero-eyebrow eyebrow"><span class="dot"></span> Tycoon Motors International — Est. 2001</div>
       <h1>Five companies. <br>One <em>discipline</em> of capital.</h1>
-      <p class="hero-sub">Tycoon Group of Companies is a privately held holding company. We build, own, and operate businesses across
-        construction, energy, logistics, property, hospitality, finance, and technology — run independently, capitalised
-        together.</p>
+      <p class="hero-sub">Tycoon Motors International Limited is a company registered with Corporate Affairs Commission (CAC) in 2001 with registration No: 409524, a diversified Nigeria company with operation in energy independent marketer, transportation, real estate and general contracting. <br></br>We are committed to delivering reliable products and quality services that power business, communities and infrastructure across Nigeria</p>
       <div class="hero-actions">
         <a href="#holdings" class="btn-primary">View the holdings</a>
         <a href="#contact" class="btn-ghost">Speak to the group office</a>
@@ -1266,11 +1312,36 @@
     </div>
   </section>
 
+  <section class="mission-vision">
+    <div class="wrap reveal">
+      <div class="mv-grid">
+        <div class="mv-card">
+          <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          <div class="eyebrow">Mission</div>
+          <h3>Our Mission</h3>
+          <p>To build sustainable businesses that create lasting value for our stakeholders, while maintaining the highest standards of integrity, innovation, and operational excellence across all our diverse sectors.</p>
+        </div>
+        <div class="mv-card">
+          <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+          <div class="eyebrow">Vision</div>
+          <h3>Our Vision</h3>
+          <p>To be the leading diversified holding company in West Africa, recognized for transforming industries through strategic capital allocation, operational autonomy, and unwavering commitment to sustainable growth and community development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="holdings" id="holdings">
     <div class="wrap">
       <div class="section-head reveal">
         <h2>The holdings.</h2>
-        <p>Each company keeps its own management, balance sheet, and name. Tycoon Group of Companies holds equity, allocates capital,
+        <p>Each company keeps its own management, balance sheet, and name. Tycoon Motors International holds equity, allocates capital,
           and stays out of the way.</p>
       </div>
 
@@ -1344,10 +1415,10 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
       <div class="reveal">
         <div class="eyebrow" style="margin-bottom:20px;">Approach</div>
         <h2>Capital without a head office breathing down anyone's neck.</h2>
-        <img src="logo.png" alt="Tycoon Group of Companies Logo" style="margin-top: 30px; max-width: 400px; height: auto;" />
+        <img src="logo.png" alt="Tycoon Motors International Logo" style="margin-top: 30px; max-width: 400px; height: auto;" />
       </div>
       <div class="reveal approach-body">
-        <p>Tycoon Group of Companies does not run the companies it owns. Each one keeps its own leadership, its own name in the
+        <p>Tycoon Motors International does not run the companies it owns. Each one keeps its own leadership, its own name in the
           market, and its own targets. The group's job is to fund the next site, the next fleet, the next product, and to
           move capital between companies when one needs it faster than a bank would give it.</p>
         <p>That structure only works with discipline. Every company reports the same way, on the same schedule, so
@@ -1356,7 +1427,7 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
         <div class="principles">
           <div class="principle">
             <div class="p-label">Ownership</div>
-            <p>Tycoon Group of Companies holds a controlling stake in every company on the board — never a passive minority position.
+            <p>Tycoon Motors International holds a controlling stake in every company on the board — never a passive minority position.
             </p>
           </div>
           <div class="principle">
@@ -1392,25 +1463,24 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
         <div class="t-row">
           <div class="year">2001</div>
           <div class="t-body">
-            <h4>Foundation of Tycoon Group of Companies</h4>
-            <p>Tycoon Homes, Tycoon Oil and Gas, and Joibslink are established as the founding companies of the group.</p>
+            <h4>Foundation of Tycoon Motors International</h4>
+            <p>Tycoon Homes, Gizoon Oil and Gas , and Joibslink are established as the founding companies of the group.</p>
           </div>
         </div>
 
         <div class="t-row">
           <div class="year">2004</div>
           <div class="t-body">
-            <h4>Tycoon Plus builds the hotel</h4>
-            <p>A large edifice of hospitality in Ebonyi, with competitive room rate and beautiful rooms</p>
+            <h4>Hotel de Tycoon builds the hotel</h4>
+            <p>From a premier hotel in Ebonyi to Tycoon Plus: beautiful rooms, competitive rates, electric nightlife, and events done right.</p>
           </div>
         </div>
 
         <div class="t-row">
           <div class="year">2024</div>
           <div class="t-body">
-            <h4>The group crosses its first border</h4>
-            <p>Tycoon Oil and Gas and Tycoon Motors begin operations in Ghana, followed by a Joibslink office in the
-              UAE.</p>
+            <h4>Financial Management with Joibslink</h4>
+            <p>Tycoon Motors International start lending and managning money at rates superior to that of banks.</p>
           </div>
         </div>
       </div>
@@ -1418,23 +1488,22 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
   </section>
 
   <section class="quote-section">
-    <div class="wrap reveal">
-      <div class="quote-mark">"</div>
-      <blockquote>We were never trying to build one big company. We were trying to build five good ones, and refused to
-        let any of them starve for capital while another one had it to spare.</blockquote>
-      <div class="quote-attr">
-        <div class="bar"></div>
-        <div class="name"><strong>Ikenna Okpalanzekwe</strong> — Founder & Chairman, Tycoon Group of Companies</div>
-      </div>
+  <div class="wrap reveal">
+    <div class="quote-mark">"</div>
+    <blockquote>It's not how much money you make, but how much money you keep.</blockquote>
+    <div class="quote-attr">
+      <div class="bar"></div>
+      <div class="name"><strong>Robert Kiyosaki</strong> — Author, <em>Rich Dad Poor Dad</em></div>
     </div>
-  </section>
+  </div>
+</section>
 
   <footer id="contact">
     <div class="wrap">
       <div class="footer-top">
         <div class="reveal">
           <h2>Bring a company, or a proposal, to the group.</h2>
-          <p class="sub">Tycoon Group of Companies hears from operators looking for growth capital, and from businesses inside our
+          <p class="sub">Tycoon Motors International hears from operators looking for growth capital, and from businesses inside our
             five sectors that would rather join a group than raise from a fund.</p>
           <div style="margin-top:36px;"><a href="mailto:okpalabenson5@gmail.com" class="btn-primary">Write to the
               group office</a></div>
@@ -1453,14 +1522,14 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
 
       <div class="footer-directory reveal">
         <a href="/tycoon-plus.html">Tycoon Plus</a>
-        <a href="/tycoon-oil.html">Tycoon Oil and Gas</a>
+        <a href="/tycoon-oil.html">Gizoon Oil and Gas </a>
         <a href="/tycoon-motors.html">Tycoon Motors</a>
         <a href="/tycoon-homes.html">Tycoon Homes</a>
         <a href="/joibslink.html">Joibslink</a>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Tycoon Group of Companies Holdings Ltd. All rights reserved.</p>
+        <p>© 2026 Tycoon Motors International Holdings Ltd. All rights reserved.</p>
         <div class="footer-social">
           <a href="https://x.com/TycoonGroups" target="_blank" rel="noopener noreferrer" style="color: var(--ivory-dim); font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s; display: flex; align-items: center; gap: 8px;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -1483,7 +1552,7 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
         logo: 'logo_plus.png'
       },
       {
-        name: 'Tycoon Oil and Gas', sector: 'Power & Energy', est: '2001',
+        name: 'Gizoon Oil and Gas ', sector: 'Power & Energy', est: '2001',
         desc: 'Independent power generation, solar mini-grids, and fuel distribution for industrial and residential sites.',
         images: [],
         logo: 'logo_oil.png'
@@ -1534,7 +1603,7 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
 
     const pageMap = {
       'Tycoon Plus': '/tycoon-plus.html',
-      'Tycoon Oil and Gas': '/tycoon-oil.html',
+      'Gizoon Oil and Gas ': '/tycoon-oil.html',
       'Tycoon Motors': '/tycoon-motors.html',
       'Tycoon Homes': '/tycoon-homes.html',
       'Joibslink': '/joibslink.html'
