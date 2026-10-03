@@ -1015,6 +1015,11 @@
         align-items: flex-start;
         gap: 16px;
       }
+
+      /* Make phone numbers white on mobile */
+      a[href^="tel:"] {
+        color: #FFFFFF !important;
+      }
     }
 
     @media (max-width:480px) {

@@ -577,8 +577,8 @@
     }
 
     .company-logo.large {
-      height: 70px;
-      max-width: 180px;
+      height: 90px;
+      max-width: 220px;
     }
 
     .board-row .name {
@@ -1158,8 +1158,8 @@
       }
 
       .company-logo.large {
-        height: 50px;
-        max-width: 120px;
+        height: 65px;
+        max-width: 150px;
       }
 
       .board-images img {
@@ -1194,6 +1194,11 @@
         align-items: flex-start;
         gap: 12px;
       }
+
+      /* Make phone numbers white on mobile */
+      a[href^="tel:"] {
+        color: #FFFFFF !important;
+      }
     }
 
     @media (max-width:480px) {
@@ -1215,8 +1220,13 @@
       }
 
       .company-logo.large {
-        height: 40px;
-        max-width: 100px;
+        height: 55px;
+        max-width: 130px;
+      }
+
+      .company-logo.plus {
+        height: 55px;
+        max-width: 130px;
       }
 
       .board-images img {
@@ -1618,7 +1628,7 @@ quality of motor spirits and at the best price. Here, we are heavily concerned i
       row.style.color = 'inherit';
       // no display:block here, so the grid columns stay aligned
 
-      const logoClass = h.logo === 'logo_oil.png' ? 'company-logo large' : 'company-logo';
+      const logoClass = (h.logo === 'logo_oil.png' || h.logo === 'logo_plus.png') ? 'company-logo plus' : 'company-logo';
       row.innerHTML = `
         <div class="name-col">
           ${h.logo ? `<img src="${h.logo}" class="${logoClass}" alt="${h.name} logo">` : ''}
