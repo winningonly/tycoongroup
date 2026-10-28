@@ -11,6 +11,7 @@
     :root {
       --primary: #1a5f2a;
       --primary-light: #2d8a4e;
+      --primary-dark: #0f3a1c;
       --secondary: #f4a423;
       --accent: #e63946;
       --dark: #0d1b2a;
@@ -69,6 +70,11 @@
       color: var(--primary);
     }
 
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+    }
+
     .nav-logo-icon {
       width: 48px;
       height: 48px;
@@ -88,6 +94,29 @@
       font-size: 18px;
       font-weight: 600;
       letter-spacing: 0.02em;
+    }
+
+    .back-to-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 16px;
+      background: rgba(26, 95, 42, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(26, 95, 42, 0.2);
+    }
+
+    .back-to-group:hover {
+      background: rgba(26, 95, 42, 0.2);
+      color: var(--primary-dark);
+      border-color: rgba(26, 95, 42, 0.4);
+      transform: translateX(-2px);
     }
 
     .nav-links {
@@ -716,6 +745,16 @@
         display: none;
       }
 
+      .back-to-group {
+        font-size: 10px;
+        padding: 5px 10px;
+      }
+
+      .back-to-group svg {
+        width: 12px;
+        height: 12px;
+      }
+
       .hero {
         padding: 100px 20px 60px;
       }
@@ -760,14 +799,14 @@
   <nav>
     <div class="nav-container">
       <div style="display: flex; align-items: center; gap: 16px;">
-        <a href="/index.html" style="display: flex; align-items: center; gap: 6px; color: var(--primary); font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 600; text-decoration: none; padding: 8px 16px; background: rgba(26, 95, 42, 0.1); border-radius: 50px; transition: all 0.3s ease;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <a href="/index.html" class="back-to-group">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
           </svg>
-          Back to Tycoon Motors International
+          Back to Tycoon Motors Intl
         </a>
         <a href="/joibslink.html" class="nav-logo">
-          <div class="nav-logo-icon">JL</div>
+          <img src="/logo_joibslink.png" alt="Joibslink" style="height: 40px; width: auto;">
           <span class="nav-logo-text">Joibslink</span>
         </a>
       </div>

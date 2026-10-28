@@ -77,6 +77,29 @@
       letter-spacing: 0.05em;
     }
 
+    .back-to-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ivory);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 12px;
+      background: rgba(217, 4, 41, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(217, 4, 41, 0.2);
+    }
+
+    .back-to-group:hover {
+      background: rgba(217, 4, 41, 0.2);
+      color: var(--brass);
+      border-color: rgba(217, 4, 41, 0.4);
+      transform: translateX(-2px);
+    }
+
     .nav-links {
       display: flex;
       gap: 32px;
@@ -631,6 +654,16 @@
         display: none;
       }
 
+      .back-to-group {
+        font-size: 10px;
+        padding: 5px 10px;
+      }
+
+      .back-to-group svg {
+        width: 12px;
+        height: 12px;
+      }
+
       .hero {
         padding: 100px 20px 60px;
       }
@@ -669,10 +702,18 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <img src="/logo.png" alt="Tycoon Motors International">
-        <span>Tycoon Motors International</span>
-      </a>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/index.html" class="back-to-group">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to Tycoon Motors Intl
+        </a>
+        <a href="index.html" class="nav-logo">
+          <img src="/logo_motors.png" alt="Tycoon Motors">
+          <span>Tycoon Motors</span>
+        </a>
+      </div>
       <ul class="nav-links">
         <li><a href="/index.html">Home</a></li>
         <li><a href="/tycoon-plus.html">Tycoon Plus</a></li>

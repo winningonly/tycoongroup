@@ -194,6 +194,29 @@
       color: var(--brass-light);
     }
 
+    .back-to-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ivory-dim);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 12px;
+      background: rgba(217, 4, 41, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(217, 4, 41, 0.2);
+    }
+
+    .back-to-group:hover {
+      background: rgba(217, 4, 41, 0.2);
+      color: var(--ivory);
+      border-color: rgba(217, 4, 41, 0.4);
+      transform: translateX(-2px);
+    }
+
     .nav-links {
       display: flex;
       gap: 36px;
@@ -1628,6 +1651,16 @@
         display: flex;
       }
 
+      .back-to-group {
+        font-size: 10px;
+        padding: 5px 10px;
+      }
+
+      .back-to-group svg {
+        width: 12px;
+        height: 12px;
+      }
+
       .hero {
         padding: 140px 0 70px;
         min-height: 60vh;
@@ -1962,9 +1995,17 @@
 
   <nav class="site-nav" id="siteNav">
     <div class="nav-inner">
-      <a href="/index.html" class="brandmark">
-        <img src="/logo.png" alt="Tycoon Motors International" />
-      </a>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/index.html" class="back-to-group">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to Tycoon Motors Intl
+        </a>
+        <a href="/index.html" class="brandmark">
+          <img src="/logo_plus.png" alt="Tycoon Plus" />
+        </a>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -2014,7 +2055,7 @@
       </div>
 
       <div class="rooms-grid reveal">
-        <!-- Room 1: Single Rooms -->
+        <!-- Room 1: Single Rooms - ₦12,500 -->
         <div class="room-card">
           <div class="room-image-wrapper">
             <img src="/tycoon_plus_1.jpg" alt="Single Room" class="room-image">
@@ -2035,7 +2076,7 @@
           </div>
         </div>
 
-        <!-- Room 2: Studio Rooms -->
+        <!-- Room 2: Studio Rooms - ₦13,500 -->
         <div class="room-card">
           <div class="room-image-wrapper">
             <img src="/tycoon_plus_2.jpg" alt="Studio Room" class="room-image">
@@ -2056,70 +2097,7 @@
           </div>
         </div>
 
-        <!-- Room 3: Senator -->
-        <div class="room-card">
-          <div class="room-image-wrapper">
-            <img src="/tycoon_plus_3.jpg" alt="Senator Room" class="room-image">
-            <div class="room-image-overlay"></div>
-            <div class="room-badge">Premium</div>
-          </div>
-          <div class="room-content">
-            <div class="room-type">Premium</div>
-            <h3 class="room-name">Senator Room</h3>
-            <p class="room-description">An elegant room with light blue walls, dark brown bed frame with blue and white patterned duvet, and dark brown curtains with sheer white inner curtains.</p>
-            <div class="room-footer">
-              <div class="room-price">
-                <span class="price-amount">₦20,000</span>
-                <span class="price-period">per night</span>
-              </div>
-              <a href="#booking" class="room-cta">Book Now</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Room 4: Single Executive -->
-        <div class="room-card">
-          <div class="room-image-wrapper">
-            <img src="/tycoon_plus_4.jpg" alt="Single Executive Room" class="room-image">
-            <div class="room-image-overlay"></div>
-            <div class="room-badge">Executive</div>
-          </div>
-          <div class="room-content">
-            <div class="room-type">Executive</div>
-            <h3 class="room-name">Single Executive</h3>
-            <p class="room-description">A refined executive room with two-tone walls (light purple and cream), upholstered headboard with patterned frame, and cream-colored curtains.</p>
-            <div class="room-footer">
-              <div class="room-price">
-                <span class="price-amount">₦16,000</span>
-                <span class="price-period">per night</span>
-              </div>
-              <a href="#booking" class="room-cta">Book Now</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Room 5: Clubrooms -->
-        <div class="room-card">
-          <div class="room-image-wrapper">
-            <img src="/tycoon_plus_5.jpg" alt="Clubroom" class="room-image">
-            <div class="room-image-overlay"></div>
-            <div class="room-badge">Luxury</div>
-          </div>
-          <div class="room-content">
-            <div class="room-type">Premium</div>
-            <h3 class="room-name">Clubroom</h3>
-            <p class="room-description">A luxurious clubroom with light purple walls, wooden bed frame with branded "GUCCI" black bedding, and a complete dressing table with mirror and drawers.</p>
-            <div class="room-footer">
-              <div class="room-price">
-                <span class="price-amount">₦23,000</span>
-                <span class="price-period">per night</span>
-              </div>
-              <a href="#booking" class="room-cta">Book Now</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Room 6: Extension -->
+        <!-- Room 3: Extension - ₦15,000 -->
         <div class="room-card">
           <div class="room-image-wrapper">
             <img src="/tycoon_plus_1.jpg" alt="Extension Room" class="room-image">
@@ -2140,7 +2118,49 @@
           </div>
         </div>
 
-        <!-- Room 7: Ambassador -->
+        <!-- Room 4: Single Executive - ₦16,000 -->
+        <div class="room-card">
+          <div class="room-image-wrapper">
+            <img src="/tycoon_plus_4.jpg" alt="Single Executive Room" class="room-image">
+            <div class="room-image-overlay"></div>
+            <div class="room-badge">Executive</div>
+          </div>
+          <div class="room-content">
+            <div class="room-type">Executive</div>
+            <h3 class="room-name">Single Executive</h3>
+            <p class="room-description">A refined executive room with two-tone walls (light purple and cream), upholstered headboard with patterned frame, and cream-colored curtains.</p>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="price-amount">₦16,000</span>
+                <span class="price-period">per night</span>
+              </div>
+              <a href="#booking" class="room-cta">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room 5: Senator - ₦20,000 -->
+        <div class="room-card">
+          <div class="room-image-wrapper">
+            <img src="/tycoon_plus_3.jpg" alt="Senator Room" class="room-image">
+            <div class="room-image-overlay"></div>
+            <div class="room-badge">Premium</div>
+          </div>
+          <div class="room-content">
+            <div class="room-type">Premium</div>
+            <h3 class="room-name">Senator Room</h3>
+            <p class="room-description">An elegant room with light blue walls, dark brown bed frame with blue and white patterned duvet, and dark brown curtains with sheer white inner curtains.</p>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="price-amount">₦20,000</span>
+                <span class="price-period">per night</span>
+              </div>
+              <a href="#booking" class="room-cta">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room 6: Ambassador - ₦20,000 -->
         <div class="room-card">
           <div class="room-image-wrapper">
             <img src="/tycoon_plus_2.jpg" alt="Ambassador Room" class="room-image">
@@ -2161,7 +2181,28 @@
           </div>
         </div>
 
-        <!-- Room 8: Executive -->
+        <!-- Room 7: Clubroom - ₦23,000 -->
+        <div class="room-card">
+          <div class="room-image-wrapper">
+            <img src="/tycoon_plus_5.jpg" alt="Clubroom" class="room-image">
+            <div class="room-image-overlay"></div>
+            <div class="room-badge">Luxury</div>
+          </div>
+          <div class="room-content">
+            <div class="room-type">Premium</div>
+            <h3 class="room-name">Clubroom</h3>
+            <p class="room-description">A luxurious clubroom with light purple walls, wooden bed frame with branded "GUCCI" black bedding, and a complete dressing table with mirror and drawers.</p>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="price-amount">₦23,000</span>
+                <span class="price-period">per night</span>
+              </div>
+              <a href="#booking" class="room-cta">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room 8: Executive - ₦27,000 -->
         <div class="room-card">
           <div class="room-image-wrapper">
             <img src="/tycoon_plus_3.jpg" alt="Executive Room" class="room-image">

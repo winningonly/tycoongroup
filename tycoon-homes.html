@@ -77,6 +77,29 @@
       letter-spacing: 0.05em;
     }
 
+    .back-to-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ivory);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 12px;
+      background: rgba(217, 4, 41, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(217, 4, 41, 0.2);
+    }
+
+    .back-to-group:hover {
+      background: rgba(217, 4, 41, 0.2);
+      color: var(--brass);
+      border-color: rgba(217, 4, 41, 0.4);
+      transform: translateX(-2px);
+    }
+
     .nav-links {
       display: flex;
       gap: 32px;
@@ -795,6 +818,16 @@
         display: none;
       }
 
+      .back-to-group {
+        font-size: 10px;
+        padding: 5px 10px;
+      }
+
+      .back-to-group svg {
+        width: 12px;
+        height: 12px;
+      }
+
       .hero {
         padding: 100px 20px 60px;
       }
@@ -861,10 +894,18 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <img src="/logo.png" alt="Tycoon Motors International">
-        <span>Tycoon Motors International</span>
-      </a>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/index.html" class="back-to-group">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to Tycoon Motors Intl
+        </a>
+        <a href="index.html" class="nav-logo">
+          <img src="/logo_homes.png" alt="Tycoon Homes">
+          <span>Tycoon Homes</span>
+        </a>
+      </div>
       <ul class="nav-links">
         <li><a href="/index.html">Home</a></li>
         <li><a href="/tycoon-plus.html">Tycoon Plus</a></li>
@@ -932,16 +973,16 @@
         </div>
         <div class="property-content">
           <p class="property-type">Plaza for Sale</p>
-          <h3 class="property-name">Commercial Plaza</h3>
+          <h3 class="property-name">Apartment Building</h3>
           <div class="property-location">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
               <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
-            Gwarimpa, Abuja
+            Otako, Abuja
           </div>
           <p class="property-description">
-            Prime commercial plaza space in Gwarimpa, Abuja. Ideal for retail and office use with excellent visibility and accessibility. High foot traffic potential in a growing commercial area.
+            Modern apartment building in Otako, Abuja. Ideal for families and young professionals, with secure living, easy road access, and strong rental demand.
           </p>
           <div class="property-features">
             <div class="property-feature">
@@ -1003,7 +1044,7 @@
               <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
               <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
-            Guzape, Abuja
+            Gwarimpa, Abuja
           </div>
           <p class="property-description">
             Luxury 5-bedroom duplex in the prestigious Guzape area of Abuja. Spacious living areas, modern amenities, and excellent security. Perfect for families seeking upscale living.
@@ -1031,6 +1072,71 @@
           <button class="property-cta" onclick="openContactModal('5-Bedroom Duplex in Guzape')">Contact for Price</button>
         </div>
       </div>
+
+      <!-- Property 3 - Kubwa Plaza -->
+      <div class="property-card">
+        <div class="property-image-gallery" data-images='["/property2.jpg", "/property2-2.jpg", "/property2-3.jpg"]'>
+          <img src="/property5.jpg" alt="Plaza in Kubwa" class="active">
+          <img src="/property5-2.jpg" alt="Plaza in Kubwa - Image 2">
+          <div class="gallery-arrow prev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 19l-7-7 7-7"/>
+            </svg>
+          </div>
+          <div class="gallery-arrow next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+          <div class="gallery-indicator">
+    <div class="gallery-dot active" data-index="0"></div>
+    <div class="gallery-dot" data-index="1"></div>
+  </div>
+          <div class="swipe-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 5l7 7-7 7"/>
+            </svg>
+            Swipe
+          </div>
+        </div>
+        <div class="property-content">
+          <p class="property-type">Plaza for Rent</p>
+          <h3 class="property-name">Kubwa Plaza</h3>
+          <div class="property-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            Kubwa, Abuja
+          </div>
+          <p class="property-description">
+            Prime commercial plaza in Kubwa, Abuja. Ideal for retail and office use, with strong visibility, easy access, and high foot traffic in a busy, fast-growing area.
+          </p>
+          <div class="property-features">
+            <div class="property-feature">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+  </svg>
+  Shops
+</div>
+<div class="property-feature">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+  </svg>
+  Prime Location
+</div>
+<div class="property-feature">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+  </svg>
+  Secure
+</div>
+          </div>
+          <button class="property-cta" onclick="openContactModal('5-Bedroom Duplex in Guzape')">Contact for Price</button>
+        </div>
+      </div>
+
 
     </div>
   </section>

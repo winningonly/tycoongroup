@@ -194,6 +194,29 @@
       color: var(--brass-light);
     }
 
+    .back-to-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ivory-dim);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 12px;
+      background: rgba(217, 4, 41, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(217, 4, 41, 0.2);
+    }
+
+    .back-to-group:hover {
+      background: rgba(217, 4, 41, 0.2);
+      color: var(--ivory);
+      border-color: rgba(217, 4, 41, 0.4);
+      transform: translateX(-2px);
+    }
+
     .nav-links {
       display: flex;
       gap: 36px;
@@ -962,6 +985,16 @@
         display: flex;
       }
 
+      .back-to-group {
+        font-size: 10px;
+        padding: 5px 10px;
+      }
+
+      .back-to-group svg {
+        width: 12px;
+        height: 12px;
+      }
+
       .hero {
         padding: 140px 0 70px;
         min-height: 60vh;
@@ -1067,9 +1100,17 @@
 
   <nav class="site-nav" id="siteNav">
     <div class="nav-inner">
-      <a href="/index.html" class="brandmark">
-        <img src="/logo.png" alt="Tycoon Motors International" />
-      </a>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/index.html" class="back-to-group">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to Tycoon Motors Intl
+        </a>
+        <a href="/index.html" class="brandmark">
+          <img src="/logo_oil.png" alt="Gizoon Oil and Gas" />
+        </a>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -1090,7 +1131,7 @@
     <div class="wrap hero-content-wrapper">
       <div class="hero-eyebrow eyebrow"><span class="dot"></span> Gizoon Oil and Gas  — Est. 2001 — Ebonyi and Enugu, Nigeria</div>
       <h1>Premium fuel <br>at <em>competitive</em> prices.</h1>
-      <p class="hero-sub">Premium PMS and AGO, delivered with consistency across Ebonyi State and Enugu. Our filling stations combine fair pricing, dependable fuel quality, and services all round-the-clock.
+      <p class="hero-sub">Premium PMS and AGO, delivered with consistency across Abakaliki, Enugu and across Nigeria. Our filling stations combine fair pricing, dependable fuel quality, and services all round-the-clock.
      
 <br></br><img src="/logo_benjoy.png" alt="Benjoy Logo" style="max-width: 180px; height: auto; margin: 20px 0; display: block;">
 <br></br>Introducing Benjoy the sister company to Gizoon Oil and Gas. Different identity, Same goal.
